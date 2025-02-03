@@ -7,7 +7,7 @@ Este reto consiste en la elaboración de una serie de programas en lenguaje ensa
 - Utiliza Google Chrome o Microsoft Edge para abrir el simulador.
 - Cada que modifiques el programa, asegúrate de guardar el archivo, actualizar la página web y cargar el archivo nuevamente.
 
-### 1) Carga en D el valor 1978.
+### 1) Carga en D el valor 1978. 
 
 ```
 @1978
