@@ -434,6 +434,13 @@ R/ Darme ganas de morir, fuera de eso...
 ### 20) Implementa un programa en lenguaje ensamblador que dibuje el bitmap que diseñaste en la pantalla solo si se presiona la tecla “d”.
 
 ```
+@24576 //Casilla del teclado.
+D=M
+@100 //el valor de la tecla "d" es de 100
+D=D-A
+@0
+D;JNE //Si D es diferente de 0 tras haber restado 100, sea positivo o negativo, se reinicia el codigo.
+//Codigo HACK del dibujo.
 // put bitmap location value in R12
 	// put code return address in R13
 	@SCREEN
