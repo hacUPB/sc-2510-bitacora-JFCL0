@@ -218,11 +218,11 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     D;JMP //forzar salto a los pasos correspondientes.
 
     //main
-    @*a   //Llevar a asignar valor de a.
+    @*a   //Llevar a asignar valor de a. En este caso es a 6.
     D=A   //Almacenar valor de *a en D.
     @a    //Ir a valor asignado.
     M=D   //Almacenar valor asignado en su respectiva posicion. 
-    @*b   //Llevar a asignar valor de b.
+    @*b   //Llevar a asignar valor de b. En este caso es 9.
     D=A   //Almacenar valor de *b en D.
     @b    //Ir a valor asignado.
     M=D   //Almacenar valor asignado en su respectiva posicion.
