@@ -70,7 +70,7 @@ Codigo original:
 
 Codigo modificado:
 
-```
+```js
 	//Programa original
 	@INICIO
     	@24576 //Uso de entrada, casilla del teclado.
