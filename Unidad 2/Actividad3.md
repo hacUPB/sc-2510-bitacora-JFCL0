@@ -5,8 +5,8 @@ Vas a implementar y simular una modificación al reto 20 de la unidad anterior. 
 R/
 
 Codigo original
-```
-    @24576 //Uso de entrada, casilla del teclado.
+```js
+    	@24576 //Uso de entrada, casilla del teclado.
 	D=M
 	@100 //el valor de la tecla "d" es de 100
 	D=D-A
@@ -14,7 +14,7 @@ Codigo original
 	D;JNE //Si D es diferente de 0 tras haber restado 100, sea positivo o negativo, se 
 	reinicia el codigo.
 	//Codigo HACK del dibujo, uso de salida (pantalla).
-    // put bitmap location value in R12
+    	// put bitmap location value in R12
 	// put code return address in R13
 	@SCREEN
 	D=A
@@ -65,7 +65,7 @@ Codigo original
 
 Codigo modificado:
 
-```
+```js
     	//Programa original
 	@INICIO
     	@24576 //Uso de entrada, casilla del teclado.
