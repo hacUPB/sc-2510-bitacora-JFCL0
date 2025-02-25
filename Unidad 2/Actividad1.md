@@ -10,8 +10,8 @@ R/ Intercambiando los valores asignados a las casillas de memoria RAM asignadas 
 
 - Inventa un programa que haga uso de la entrada-salida mapeada a memoria.  
 R/ 
-```
-@24576 //Uso de entrada, casilla del teclado.
+```js
+	@24576 //Uso de entrada, casilla del teclado.
 	D=M
 	@100 //el valor de la tecla "d" es de 100
 	D=D-A
@@ -19,7 +19,7 @@ R/
 	D;JNE //Si D es diferente de 0 tras haber restado 100, sea positivo o negativo, se 
 	reinicia el codigo.
 	//Codigo HACK del dibujo, uso de salida (pantalla).
-    // put bitmap location value in R12
+    	// put bitmap location value in R12
 	// put code return address in R13
 	@SCREEN
 	D=A
