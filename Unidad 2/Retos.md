@@ -32,23 +32,26 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
 
     R/  
 
-    ```cpp
-    @1 //Variable i, contador
-    @0 //Variable sum
-    @0
+    ```js
+    @i //Variable i, contador
+    M=1 // Inicializar i=1
+    @sum //Variable sum
+    M=0 // Inicializar sum = 0
+    @loop
+    @sum
     D=M
-    @1
+    @i
     M=M+1
     A=M
     D=D+A
-    @0
+    @sum
     M=D
-    @1
+    @i
     D=M
     @100
     D=D-A
-    @0
-    D;JGT
+    @loop
+    D;JLT
     ```
     - ¿Cómo están implementadas las variables `i` y `sum`?  
     R/ i sirve como contador, sum sirve para mantener registro del progreso de la sumatoria.  
@@ -82,20 +85,27 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     ```
 3. Escribe un programa en lenguaje ensamblador que implemente el programa anterior.
     R/
-    ```cpp
-    @100 //i=100
+    ```js
+    @i //i=100
+    @100
+    D=A
+    @i
+    M=D //inicializar i como igual a 100
     M=A //Almacenar valor de i inicial
-    @0 //sum = 0
+    @sum //sum = 0
+    M=0
+    @loop
+    @sum
     D=M
-    @100 //i
+    @i
     A=M
     D=D+A
-    @0 //sum
+    @sum
     M=D
-    @100 //i
+    @i
     M=M-1 //i--
     D=M
-    @2
+    @loop
     D;JNE //Loop donde si i llega a 0 o se vuelve negativo se detiene el programa.
     ```
 4. Ahora vamos a acercarnos al concepto de puntero. Un puntero es una variable que almacena la dirección de memoria de otra variable. Observa el siguiente programa escrito en C++:
@@ -130,7 +140,7 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     *p = 20;
     ```
     R/
-    ```cpp
+    ```js
     @10 //a=10, a esta ubicada en R10
     D=A //Almacenar direccion de a.
     @p  //Posicion no determinada, placeholder.
@@ -163,7 +173,7 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     b = *p;
     ```
     R/
-    ```cpp
+    ```js
     @10 // a = 10
     @5  // b = 5
     @*p // generar p.
@@ -202,22 +212,22 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     }
     ```
     R/
-    ```cpp
-    @0 //Aqui voy a almacenar var.
+    ```js
+    @var //Aqui voy a almacenar var.
     @a //Variable a.
     @b //Variable b.
 
-    //suma
+    @suma
     @a
     D=M //Sumar valor almacenado en a
     @b
     D=D+M  //Sumar valor almacenado en b.
-    @0     //var
-    M=A    //Almacenar valor asignado a  var.
+    @var
+    M=D    //Almacenar valor asignado a  var.
     @main //llevar a print
     D;JMP //forzar salto a los pasos correspondientes.
 
-    //main
+    @main
     @*a   //Llevar a asignar valor de a. En este caso es a 6.
     D=A   //Almacenar valor de *a en D.
     @a    //Ir a valor asignado.
