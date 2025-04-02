@@ -141,7 +141,7 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     ```
     R/
     ```js
-    @10 //a=10, a esta ubicada en R10
+    @a //a=10, a está almacenada en RAM(10)
     D=A //Almacenar direccion de a.
     @p  //Posicion no determinada, placeholder.
     M=D //Almacenar *p en p. R(p) = RAM(a)
@@ -174,10 +174,10 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     ```
     R/
     ```js
-    @10 // a = 10
-    @5  // b = 5
+    @a // a = 10, a está almacenada en RAM(10)
+    @b // b = 5, b está ubicada en RAM(5)
     @*p // generar p.
-    @10
+    @a
     D=A
     @p
     M=D //p = &a, direccion de a queda almacenada.
