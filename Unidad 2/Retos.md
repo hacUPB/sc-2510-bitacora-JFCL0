@@ -106,7 +106,7 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     M=M-1 //i--
     D=M
     @loop
-    D;JNE //Loop donde si i llega a 0 o se vuelve negativo se detiene el programa.
+    D;JGT //Loop si i es mayor a 0.
     ```
 4. Ahora vamos a acercarnos al concepto de puntero. Un puntero es una variable que almacena la dirección de memoria de otra variable. Observa el siguiente programa escrito en C++:
     
