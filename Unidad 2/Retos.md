@@ -224,7 +224,7 @@ En la bitácora vas a reportar para cada mini-reto dos cosas:
     D=D+M  //Sumar valor almacenado en b.
     @var
     M=D    //Almacenar valor asignado a  var.
-    @main //llevar a main.
+    @main //llevar a main. 
     D;JMP //forzar salto a los pasos correspondientes.
 
     @main
