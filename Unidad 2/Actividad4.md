@@ -5,26 +5,25 @@ Ahora realizarás una nueva variación al programa de la actividad anterior. Si 
 R/  
 
 Codigo original:
-```
-    //Limpiar pantalla
-    @SCREEN
-	D=A
-	@R12
-	AD=D+M
-    //Programa original
-    @24576 //Uso de entrada, casilla del teclado.
+```js
+	//Programa original
+	@INICIO
+    	@24576 //Uso de entrada, casilla del teclado.
 	D=M
 	@100 //el valor de la tecla "d" es de 100
 	D=D-A
-	@0
-	D;JNE //Si D es diferente de 0 tras haber restado 100, sea positivo o negativo, se 
-	reinicia el codigo.
-	//Codigo HACK del dibujo, uso de salida (pantalla).
-    // put bitmap location value in R12
-	// put code return address in R13
+	@BITMAP //No quiero contar
+	D;JEQ //Si D es igual a 0 tras haber restado 100, pasa a hacer el dibujo
+	//Limpiar pantalla
 	@SCREEN
 	D=A
-	@R12
+	@INICIO
+	AD=D+M
+	D;JMP
+	//Codigo HACK del dibujo, uso de salida (pantalla).
+	@SCREEN
+	D=A
+	@BITMAP
 	AD=D+M
 	// row 2
 	@231 // A holds val
@@ -64,33 +63,33 @@ Codigo original:
 	A=D-A // A=addr + val - val = addr
 	M=D-A // RAM[addr] = val
 	// return
-	@R13
+	@INICIO
 	A=M
 	D;JMP
 ```
 
 Codigo modificado:
 
-```
-    //Programa original
-    @24576 //Uso de entrada, casilla del teclado.
+```js
+	//Programa original
+	@INICIO
+    	@24576 //Uso de entrada, casilla del teclado.
 	D=M
 	@100 //el valor de la tecla "d" es de 100
 	D=D-A
-	@0
-	D;JNE //Si D es diferente de 0 tras haber restado 100, sea positivo o negativo, se reinicia el codigo.
-    @24576 //Uso de entrada, casilla de teclado.
-    D=M
-	@101 //el valor de la tecla "d" es de 100
+	@BITMAP //No quiero contar
+	D;JEQ //Si D es igual a 0 tras haber restado 100, pasa a hacer el dibujo
+	//Si no paso el chequeo de presionar d, procede con el chequeo de si presiona e
+	@24576 //Uso de entrada, casilla del teclado.
+	D=M
+	@101 //el valor de la tecla "e" es de 101
 	D=D-A
-	@61
-	D;JEQ //Si D es igual a 0 tras haber restado 101, salta al codigo correspondiente de borrar lo que hay en pantalla.
+	@BORRARDIBUJO //No quiero contar
+	D;JEQ //Si D es igual a 0 tras haber restado 101, pasa a borrar el dibujo
 	//Codigo HACK del dibujo, uso de salida (pantalla).
-    // put bitmap location value in R12
-	// put code return address in R13
 	@SCREEN
 	D=A
-	@R12
+	@BITMAP
 	AD=D+M
 	// row 2
 	@231 // A holds val
@@ -130,17 +129,14 @@ Codigo modificado:
 	A=D-A // A=addr + val - val = addr
 	M=D-A // RAM[addr] = val
 	// return
-	@R13
+	@INICIO
 	A=M
 	D;JMP
-    //Limpiar pantalla
-    @SCREEN
+	@BORRARDIBUJO
+	//Limpiar pantalla
+	@SCREEN
 	D=A
-	@R12
+	@INICIO
 	AD=D+M
-	// return
-	@R13
-	A=M
 	D;JMP
-
 ```
