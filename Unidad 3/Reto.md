@@ -15,6 +15,7 @@ public:
     void setPosition(glm::vec3 pos); 
     void setRadius(float r); 
     void setSelected(bool s);
+    void draw();
 
 private:
     glm::vec3 position;
