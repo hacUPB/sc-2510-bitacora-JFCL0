@@ -295,3 +295,5 @@ void ofApp::mousePressed(int x, int y, int button) {
     selector.mousePressed(x, y, cam);
 }
 ```
+
+![Video prueba](https://youtu.be/eLcJyYtDZuo)
